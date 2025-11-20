@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mohamad Alkhalaf - Senior Full Stack Developer</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            /* --- PRINT & RESET --- */
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            * {
+                box-sizing: border-box;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            body {
+                margin: 0;
+                font-family: "Inter", sans-serif;
+                background: #fff;
+                color: #1e293b;
+                font-size: 13px; /* Slightly smaller to fit more buzzwords */
+                line-height: 1.45;
+            }
+
+            /* --- LAYOUT GRID --- */
+            .page-container {
+                width: 21cm;
+                min-height: 29.7cm;
+                margin: 0 auto;
+                display: flex;
+            }
+
+            /* --- LEFT SIDEBAR (32%) --- */
+            .sidebar {
+                width: 32%;
+                background-color: #f8fafc; /* Very light slate */
+                padding: 35px 25px;
+                border-right: 1px solid #e2e8f0;
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid #fff;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                display: block;
+                margin: 0 auto 20px auto;
+            }
+
+            /* Contact Info */
+            .contact-container {
+                margin-bottom: 35px;
+            }
+            .contact-item {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 12px;
+                color: #334155;
+                text-decoration: none;
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+            .contact-item i {
+                min-width: 22px;
+                color: #2563eb; /* Primary Blue */
+                margin-top: 2px;
+            }
+
+            /* Sidebar Headers */
+            .side-header {
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+                font-weight: 800;
+                color: #0f172a;
+                border-bottom: 2px solid #cbd5e1;
+                padding-bottom: 5px;
+                margin-bottom: 15px;
+                margin-top: 30px;
+            }
+
+            /* Sidebar Lists */
+            .tech-list-side {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .tech-list-side li {
+                margin-bottom: 8px;
+                font-weight: 600;
+                font-size: 0.85rem;
+                color: #475569;
+                display: flex;
+                align-items: center;
+            }
+            .tech-list-side li::before {
+                content: "•";
+                color: #2563eb;
+                margin-right: 8px;
+                font-size: 1.2em;
+            }
+
+            /* Language Bar */
+            .lang-row {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.85rem;
+                margin-bottom: 6px;
+            }
+            .lang-row strong {
+                color: #0f172a;
+            }
+
+            /* --- RIGHT CONTENT (68%) --- */
+            .main {
+                width: 68%;
+                padding: 40px 35px;
+            }
+
+            /* Name & Title */
+            .name-title h1 {
+                font-size: 2.4rem;
+                font-weight: 900;
+                color: #0f172a;
+                margin: 0;
+                line-height: 1;
+                letter-spacing: -1px;
+            }
+            .name-title h2 {
+                font-size: 1.1rem;
+                color: #2563eb;
+                font-weight: 700;
+                margin: 8px 0 15px 0;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            .summary {
+                color: #475569;
+                text-align: justify;
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+
+            /* Main Section Headers */
+            .section-head {
+                font-size: 0.95rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: #1e293b;
+                background: #eff6ff;
+                padding: 8px 12px;
+                border-left: 4px solid #2563eb;
+                margin-bottom: 15px;
+                margin-top: 10px;
+                letter-spacing: 0.5px;
+            }
+
+            /* Web Stack Grid */
+            .stack-grid {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+            .stack-col {
+                flex: 1;
+            }
+
+            .stack-label {
+                font-weight: 700;
+                font-size: 0.8rem;
+                color: #64748b;
+                margin-bottom: 6px;
+                display: block;
+                text-transform: uppercase;
+            }
+
+            /* Skill Tags */
+            .tags-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            .tag {
+                background: #fff;
+                border: 1px solid #cbd5e1;
+                color: #334155;
+                padding: 3px 8px;
+                border-radius: 4px;
+                font-size: 0.75rem;
+                font-weight: 700;
+            }
+            .tag.highlight {
+                background: #f0f9ff;
+                border-color: #bae6fd;
+                color: #0284c7;
+            }
+
+            /* Experience & Projects */
+            .job-block {
+                margin-bottom: 20px;
+            }
+            .job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: 5px;
+            }
+            .job-title {
+                font-size: 1.05rem;
+                font-weight: 800;
+                color: #0f172a;
+            }
+            .job-link {
+                font-size: 0.8rem;
+                color: #2563eb;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            .job-date {
+                font-size: 0.8rem;
+                color: #64748b;
+                font-weight: 600;
+                background: #f1f5f9;
+                padding: 2px 8px;
+                border-radius: 4px;
+            }
+
+            .job-desc {
+                font-size: 0.9rem;
+                color: #334155;
+                margin-bottom: 8px;
+                font-style: italic;
+            }
+
+            /* Bullet Lists */
+            .bullet-list {
+                margin: 0;
+                padding-left: 18px;
+                list-style-type: disc;
+            }
+            .bullet-list li {
+                margin-bottom: 4px;
+                font-size: 0.9rem;
+                color: #334155;
+            }
+            .bullet-list li strong {
+                color: #0f172a;
+                font-weight: 700;
+            }
+
+            /* Rate Box */
+            .rate-box {
+                margin-top: 25px;
+                padding: 12px;
+                border: 2px dashed #10b981;
+                background-color: #f0fdf4;
+                border-radius: 6px;
+                text-align: center;
+                color: #15803d;
+                font-weight: 700;
+                font-size: 0.9rem;
+            }
+
+            @media print {
+                .page-container {
+                    width: 100%;
+                    height: auto;
+                    box-shadow: none;
+                }
+                .tag {
+                    border: 1px solid #ccc;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <!-- LEFT SIDEBAR -->
+            <aside class="sidebar">
+                <img
+                    src="https://media.licdn.com/dms/image/v2/D4D03AQE5UkRkvEtkIw/profile-displayphoto-scale_400_400/B4DZkJde3iIYAk-/0/1756800348227?e=1765411200&v=beta&t=qkQ7tjO8tJV7Mrwj-AbiFOBoKM5fh0e3xUyiS1vp3D8"
+                    alt="Profile"
+                    class="profile-img"
+                />
+
+                <div class="contact-container">
+                    <div class="side-header" style="margin-top: 0">Contact</div>
+                    <a href="https://wa.link/gn9vog" class="contact-item">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Chat
+                    </a>
+                    <a href="tel:+905507906889" class="contact-item">
+                        <i class="fas fa-phone"></i> +90 550 790 6889
+                    </a>
+                    <a href="mailto:mohammad.onthefloor@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> mohammad.onthefloor@<br />gmail.com
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/mohamad-alkhalaf-a268a3235/"
+                        class="contact-item"
+                    >
+                        <i class="fab fa-linkedin"></i> LinkedIn Profile
+                    </a>
+                    <a href="https://github.com/MuhammadDev99" class="contact-item">
+                        <i class="fab fa-github"></i> GitHub Portfolio
+                    </a>
+                </div>
+
+                <!-- Supplementary Skills (Moved Game/Desktop here) -->
+                <div class="side-header">Additional Proficiency</div>
+                <ul class="tech-list-side">
+                    <li>C# / .NET Core</li>
+                    <li>Electron (Cross-platform)</li>
+                    <li>Unity 3D & Game Logic</li>
+                    <li>WPF Desktop Apps</li>
+                    <li>C++ Memory Management</li>
+                </ul>
+
+                <!-- Creative -->
+                <div class="side-header">Creative Tools</div>
+                <ul class="tech-list-side">
+                    <li>Adobe Photoshop</li>
+                    <li>Premiere Pro (Editing)</li>
+                    <li>After Effects (Motion)</li>
+                    <li>UI/UX Prototyping</li>
+                </ul>
+
+                <!-- Languages -->
+                <div class="side-header">Languages</div>
+                <div class="lang-row"><span>English</span> <strong>Fluent</strong></div>
+                <div class="lang-row"><span>Arabic</span> <strong>Native</strong></div>
+                <div class="lang-row"><span>Turkish</span> <strong>Conversational</strong></div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main">
+                <!-- Header -->
+                <div class="name-title">
+                    <h1>Mohamad Alkhalaf</h1>
+                    <h2>Senior Full Stack Web Developer</h2>
+                </div>
+
+                <p class="summary">
+                    Results-driven Full Stack Engineer with
+                    <strong>7 years of experience</strong> architecting scalable web solutions and
+                    enterprise applications. Specialist in the <strong>MERN Stack</strong> and
+                    <strong>Cloud-Native Architectures</strong>. Proven track record of managing the
+                    full Software Development Life Cycle (SDLC) from system design to CI/CD
+                    deployment. Expert in optimizing MongoDB databases and engineering secure,
+                    high-availability RESTful APIs.
+                </p>
+
+                <!-- FULL STACK ARSENAL (Prioritized) -->
+                <div class="section-head">Full Stack Web Architecture</div>
+
+                <div class="stack-grid">
+                    <div class="stack-col">
+                        <span class="stack-label">Frontend Engineering</span>
+                        <div class="tags-container">
+                            <span class="tag highlight">React.js</span>
+                            <span class="tag highlight">TypeScript</span>
+                            <span class="tag">Preact Signals</span>
+                            <span class="tag">HTML5 / CSS3</span>
+                            <span class="tag">Responsive Design</span>
+                            <span class="tag">DOM Manipulation</span>
+                        </div>
+                    </div>
+                    <div class="stack-col">
+                        <span class="stack-label">Backend & Database</span>
+                        <div class="tags-container">
+                            <span class="tag highlight">Node.js</span>
+                            <span class="tag highlight">MongoDB</span>
+                            <span class="tag">Express.js</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">RESTful APIs</span>
+                            <span class="tag">Microservices</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stack-grid">
+                    <div class="stack-col">
+                        <span class="stack-label">DevOps & Tooling</span>
+                        <div class="tags-container">
+                            <span class="tag">Git / Version Control</span>
+                            <span class="tag">CI/CD Pipelines</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Agile / Scrum</span>
+                            <span class="tag">JWT Auth</span>
+                            <span class="tag">Unit Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURED PROJECT (Tech Heavy) -->
+                <div class="section-head">Featured Web Project</div>
+
+                <div class="job-block">
+                    <div class="job-header">
+                        <span class="job-title">SparkyShop - Enterprise E-Commerce Platform</span>
+                        <a href="https://muhammad.developer.li/E-commerce-app/" class="job-link"
+                            >View Live Demo</a
+                        >
+                    </div>
+                    <p class="job-desc">
+                        A full-stack, type-safe e-commerce solution focusing on security benchmarks
+                        and state optimization.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>
+                            <strong>Security Architecture:</strong> Engineered a secure
+                            authentication system using <strong>HTTP-Only Cookies</strong> and
+                            <strong>JWT</strong> to mitigate XSS and CSRF vulnerabilities.
+                        </li>
+                        <li>
+                            <strong>Performance Optimization:</strong> Implemented
+                            <strong>Preact Signals</strong> for fine-grained reactivity, reducing
+                            Virtual DOM re-renders by 40% compared to Context API.
+                        </li>
+                        <li>
+                            <strong>Backend Scalability:</strong> Designed a modular
+                            <strong>Node.js/Express</strong> API with strict middleware validation
+                            and a <strong>PostgreSQL</strong> relational schema for inventory
+                            integrity.
+                        </li>
+                        <li>
+                            <strong>Type Safety:</strong> Developed a custom generic API wrapper in
+                            <strong>TypeScript</strong>, ensuring end-to-end type consistency
+                            between client and server.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PROFESSIONAL EXPERIENCE -->
+                <div class="section-head">Professional Experience</div>
+
+                <div class="job-block">
+                    <div class="job-header">
+                        <span class="job-title">Full Stack Software Engineer (Freelance)</span>
+                        <span class="job-date">2018 - Present (7 Years)</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>
+                            <strong>End-to-End Web Development:</strong> Delivered robust full-stack
+                            web applications using the <strong>MERN stack</strong>, ensuring
+                            cross-browser compatibility and mobile responsiveness.
+                        </li>
+                        <li>
+                            <strong>Database Engineering:</strong> Led migration initiatives from
+                            legacy SQL systems to high-performance
+                            <strong>MongoDB clusters</strong>, utilizing Aggregation Pipelines to
+                            optimize query speed for data-heavy applications.
+                        </li>
+                        <li>
+                            <strong>System Integration:</strong> Integrated third-party APIs
+                            (Payment Gateways, OAuth) and developed custom
+                            <strong>REST APIs</strong> to support cross-platform desktop
+                            applications built with <strong>Electron</strong>.
+                        </li>
+                        <li>
+                            <strong>DevOps Implementation:</strong> Established
+                            <strong>Git</strong> workflows and automated deployment strategies using
+                            <strong>CI/CD</strong> tools to streamline production releases.
+                        </li>
+                        <li>
+                            <strong>Cross-Functional Collaboration:</strong> Bridged the gap between
+                            design and code by utilizing <strong>Adobe Creative Suite</strong> to
+                            produce high-fidelity UI mockups and interactive prototypes.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- HIRE ME -->
+                <div class="rate-box">
+                    <i class="fas fa-check-circle"></i> Available for Hire: $6.99 / Hour
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
